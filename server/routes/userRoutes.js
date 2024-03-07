@@ -7,7 +7,7 @@ import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
 import { userModel } from '../models/userModel.js'
 import cloudinary from '../cloudinary/cloudinary.js'
-const {SECRET} = process.env
+const {SECRET, user, pass} = process.env
 
 const router = express.Router()
 
@@ -40,8 +40,8 @@ router.post('/signup', async (req,res) => {
           host: "sandbox.smtp.mailtrap.io",
           port: 2525,
           auth: {
-            user: "59307be0214a0c",
-            pass: "537c3c9d65cf86"
+            user: user,
+            pass: pass
           }
         });
 
